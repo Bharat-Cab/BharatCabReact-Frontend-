@@ -1,0 +1,61 @@
+/* searchbar.css */
+
+/* Ensure the nav bar has some padding and a background color */
+
+
+/*
+.navbar {
+  padding: 10px;
+  background-color: #f8f9fa;  Light grey background 
+}
+  */
+
+/* Style the container to have space between elements */
+.container-fluid {
+  display: flex;
+  gap: 10px;
+  align-items: center; 
+  justify-content: center;/* Vertically center the items */
+}
+
+/* Style the form controls (input fields) */
+.form-control {
+  border: 1px solid #ced4da; /* Light grey border */
+  border-radius: 5px; /* Rounded corners */
+  padding: 8px 12px; /* Padding inside the input */
+  font-size: 14px; /* Font size for input text */
+}
+
+/* Style the button */
+.navbar-toggler {
+  border: none;
+  padding: 8px 16px;
+  background-color: #007bff; /* Bootstrap primary color */
+  color: white;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px 0;
+}
+
+/* Change button color on hover */
+.navbar-toggler:hover {
+  background-color: #0056b3; /* Darker shade of blue */
+}
+
+/* Responsive design: stack elements vertically on small screens */
+@media (max-width: 768px) {
+  .container-fluid {
+    flex-direction: column; /* Stack elements vertically */
+    gap: 10px;
+  }
+
+  .form-control {
+    width: 100%; /* Full width on small screens */
+  }
+
+  .navbar-toggler {
+    width: 100%; /* Full width on small screens */
+    text-align: center;
+  }
+}
