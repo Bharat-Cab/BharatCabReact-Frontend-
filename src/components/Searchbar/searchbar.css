@@ -1,24 +1,21 @@
-/* searchbar.css */
-
-/* Ensure the nav bar has some padding and a background color */
-
-
-/*
-.navbar {
-  padding: 10px;
-  background-color: #f8f9fa;  Light grey background 
+.navbar2{
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  background-color: #2c7330; /* Makes the background white */
+  padding: 15px; /* Adds padding inside the card */
+  border-radius: 8px; /* Rounds the corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow for a card effect */
+  margin: 4px; /* Adds a small margin from all sides */
 }
-  */
-
-/* Style the container to have space between elements */
 .container-fluid {
   display: flex;
   gap: 10px;
   align-items: center; 
-  justify-content: center;/* Vertically center the items */
+  justify-content: center;
 }
 
-/* Style the form controls (input fields) */
+
 .form-control {
   border: 1px solid #ced4da; /* Light grey border */
   border-radius: 5px; /* Rounded corners */

@@ -12,15 +12,12 @@ const LandingPage = () => {
           </td>
           <td className="text-container">
             <p>
-            
               <strong>
                 Connecting Journeys,<br />
                 Sharing Rides, Saving Costs.<br />
                 Your Travel Partner.
               </strong>
             </p>
-            
-
           </td>
         </tr>
       </tbody>

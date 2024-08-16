@@ -2,7 +2,8 @@
   border: 2px solid #00a9e0;
   border-radius: 8px;
   padding: 16px;
-  width: 400px;
+  width: 80%;
+  margin: 10px auto;
   font-family: Arial, sans-serif;
   background-color: #fff;
 }
@@ -16,12 +17,15 @@
 
 .ride-time {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  gap: 100px;
 }
 
-.ride-time span {
+.ride-time p {
   margin: 2px 0;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
 }
 
 .ride-duration {
@@ -29,9 +33,13 @@
   color: gray;
 }
 
+.ride-start, .ride-end {
+  font-size: 1.5em; 
+}
+
 .ride-cities {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
 }
 
