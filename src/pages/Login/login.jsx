@@ -1,48 +1,33 @@
 import React, { useState } from 'react';
-import './login.css';
-import { Link, useNavigate } from 'react-router-dom';
+import './loginpage.css';
+import { useNavigate } from 'react-router-dom';
 import {
   MDBContainer,
   MDBCol,
   MDBRow,
   MDBBtn,
-  MDBInput,
-  MDBCheckbox
+  MDBInput
 } from 'mdb-react-ui-kit';
-
-import { setToken } from '../../service/SessionStorageService';
 
 function LoginPage() {
   const navigate = useNavigate();
   const [userEmail, setEmail] = useState('');
   const [userPassword, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
-  const handleSignIn = async (e) => {
+  const handleSignIn = (e) => {
     e.preventDefault();
 
-    try {
-      const response = await fetch("http://localhost:9090/login", {
-        method: "POST",
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          userEmail,
-          userPassword
-        }),
-      });
+    // Simulated user credentials
+    const validEmail = "abc";
+    const validPassword = "abc";
 
-      const data = await response.json();
-
-      if (response.ok) {
-        setToken(data.token);
-        navigate('/home');
-      } else {
-        alert("Login failed: " + data.message);
-      }
-    } catch (error) {
-      console.error("Login error:", error);
-      alert("Login failed due to an error");
+    if (userEmail === validEmail && userPassword === validPassword) {
+      // Simulate token storage (if needed)
+      localStorage.setItem("token", "fake-jwt-token");
+      navigate('/home'); // Redirect to home page
+    } else {
+      setErrorMessage("Invalid email or password. Please try again.");
     }
   };
 
@@ -53,18 +38,16 @@ function LoginPage() {
   return (
     <MDBContainer fluid className="p-3 my-5" style={{ backgroundColor: '#ebedee' }}>
       <MDBRow>
-        <MDBCol col='10' md='6'>
+        <MDBCol md='6'>
           <img src={require('./login.gif')} className="img-fluid" alt="Car GIF" />
         </MDBCol>
 
-        <MDBCol col='4' md='6' className="d-flex justify-content-center align-items-center">
+        <MDBCol md='6' className="d-flex justify-content-center align-items-center" style={{ minHeight: '30vh' }}>
           <div>
-            {/* Title Section */}
             <h2 className="mb-4" style={{ fontSize: '32px', fontWeight: 'bold', textAlign: 'center' }}>
               BharatCab Your Travel Partner
             </h2>
 
-            {/* Controlled Inputs */}
             <MDBInput
               wrapperClass='mb-4'
               label='E-mail'
@@ -84,12 +67,12 @@ function LoginPage() {
               onChange={(e) => setPassword(e.target.value)}
             />
 
+            {errorMessage && <p style={{ color: 'red', textAlign: 'center' }}>{errorMessage}</p>}
+
             <div className="d-flex justify-content-between mx-4 mb-4">
-              <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Remember me' />
               <a href="#!">Forgot password?</a>
             </div>
 
-            {/* Sign In and Sign Up Buttons */}
             <div className="d-flex justify-content-between">
               <MDBBtn className="w-50 me-2" size="lg" onClick={handleSignIn}>Sign in</MDBBtn>
               <MDBBtn className="w-50 ms-2" color="success" size="lg" onClick={handleSignUp}>Sign up</MDBBtn>
