@@ -13,22 +13,11 @@ function LoginPage() {
   const navigate = useNavigate();
   const [userEmail, setEmail] = useState('');
   const [userPassword, setPassword] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
 
   const handleSignIn = (e) => {
     e.preventDefault();
-
-    // Simulated user credentials
-    const validEmail = "abc";
-    const validPassword = "abc";
-
-    if (userEmail === validEmail && userPassword === validPassword) {
-      // Simulate token storage (if needed)
-      localStorage.setItem("token", "fake-jwt-token");
-      navigate('/home'); // Redirect to home page
-    } else {
-      setErrorMessage("Invalid email or password. Please try again.");
-    }
+    // This will Directly navigate to the home page
+    navigate('/home');
   };
 
   const handleSignUp = () => {
@@ -66,8 +55,6 @@ function LoginPage() {
               value={userPassword}
               onChange={(e) => setPassword(e.target.value)}
             />
-
-            {errorMessage && <p style={{ color: 'red', textAlign: 'center' }}>{errorMessage}</p>}
 
             <div className="d-flex justify-content-between mx-4 mb-4">
               <a href="#!">Forgot password?</a>
